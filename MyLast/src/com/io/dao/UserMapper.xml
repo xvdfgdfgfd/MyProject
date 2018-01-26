@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.io.dao.UserMapper">
+
+    <insert id="addUser">
+        insert into T_USER("u_id","u_name","u_pass") values(T_USER_SEQ.nextval,#{u_name},#{u_pass})
+    </insert>
+    <select id="addBefore" resultType="com.io.model.User">
+        select "u_name" from T_USER  where "u_name"=#{u_name}
+    </select>
+    <select id="login" resultType="com.io.model.User">
+        select * from T_USER where "u_name"=#{u_name} and "u_pass"=#{u_pass}
+    </select>
+</mapper>
