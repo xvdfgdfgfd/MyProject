@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Sope
@@ -16,7 +17,46 @@
     <title></title>
 </head>
 <body>
-    ${"欢迎"}
-    ${sessionScope.user.u_name}
+    <table>
+        <th>
+        ${"欢迎"}
+        ${sessionScope.user.u_name}
+        </th>
+    </table>
+
+    <table border="2">
+
+        <th>帐号</th>
+        <th>录用情况</th>
+        <th>面试</th>
+        <tr>
+            <td>${sessionScope.user.u_name}</td>
+            <c:choose>
+              <c:when test="${sessionScope.user.u_hire==0}" >
+                  <td>${"未被录用"}</td>
+              </c:when>
+                <c:when test="${sessionScope.user.u_hire==1}">
+                    <td>${"已被录用"}</td>
+                </c:when>
+            </c:choose>
+            <c:choose>
+                <c:when test="${sessionScope.user.u_intn==0}">
+                    <td>${"暂无面试消息"}</td>
+                </c:when>
+                <c:when test="${sessionScope.user.u_intn==1}">
+                    <td>${"可以面试了！"}</td>
+                </c:when>
+            </c:choose>
+        </tr>
+    </table>
+    <form action="forAddResume"method="post">
+        <input type="submit" value="添加简历"/>
+    </form>
+    <form action="getResume" method="post">
+        <input type="submit"value="查看简历">
+    </form>
+    <form action="getDepar" method="post">
+        <input type="submit" value="查看招聘信息"/>
+    </form>
 </body>
 </html>

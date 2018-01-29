@@ -48,11 +48,14 @@ public class UserController {
     public String login(User user, HttpSession session)throws  Exception{
         User user1 = userService.login(user);
         if (user1!=null){
-            session.setAttribute("user",user1);
-            return "loginSuccess";
-        }else {
-            return "loginFailure";
+            if(user1.getU_name().equals("admin")&&user1.getU_pass().equals("admin")){
+                return "loginAdmin";
+            }else {
+                session.setAttribute("user",user1);
+                return "loginSuccess";
+            }
         }
+        return "../../index";
     }
 }
 
