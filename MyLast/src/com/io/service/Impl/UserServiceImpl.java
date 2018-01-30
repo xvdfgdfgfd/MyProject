@@ -36,4 +36,9 @@ public class UserServiceImpl implements UserService {
         User user1 = userMapper.addBefore(user);
         return user1;
     }
+
+    @Override
+    public boolean updateUser(User user) {
+        return userMapper.updateUser(user);
+    }
 }

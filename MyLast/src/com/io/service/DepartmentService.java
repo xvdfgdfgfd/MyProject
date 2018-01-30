@@ -7,4 +7,5 @@ import java.util.List;
 public interface DepartmentService {
     List<Department> getDepar(Department department);
     List<Department> getAllDepat();
+    boolean updateDepar(Department department);
 }

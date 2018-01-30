@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.io.dao.DepartmentMapper">
+    <update id="updateDepar">
+        update T_DEPARTMENT set D_STATU=#{d_statu} where D_id=#{d_id}
+    </update>
     <select id="getDepar" resultType="com.io.model.Department">
         select * from T_DEPARTMENT where D_STATU=#{d_statu}
     </select>

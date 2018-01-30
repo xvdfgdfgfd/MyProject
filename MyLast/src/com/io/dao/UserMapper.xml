@@ -7,6 +7,9 @@
     <insert id="addUser">
         insert into T_USER("u_id","u_name","u_pass") values(T_USER_SEQ.nextval,#{u_name},#{u_pass})
     </insert>
+    <update id="updateUser">
+        update T_USER set "u_intn"=#{u_intn},"u_interview"=#{u_interview} where "u_id"=#{u_id}
+    </update>
     <select id="addBefore" resultType="com.io.model.User">
         select "u_name" from T_USER  where "u_name"=#{u_name}
     </select>

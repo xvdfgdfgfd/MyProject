@@ -24,7 +24,7 @@
                 <c:choose>
                     <c:when test="${allDepar.d_statu==0}">
                         <td>
-                            <form>
+                            <form action="updateDepar"method="post">
                                 <input type="hidden" value="${allDepar.d_id}" name="did"/>
                                 <input type="submit" value="发布招聘">
                             </form>
@@ -32,7 +32,7 @@
                     </c:when>
                     <c:when test="${allDepar.d_statu==1}">
                         <td>
-                            <form>
+                            <form action="downDepar" method="post">
                                 <input type="hidden" value="${allDepar.d_id}" name="did"/>
                                 <input type="submit" value="取消招聘">
                             </form>

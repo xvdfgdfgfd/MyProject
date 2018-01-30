@@ -20,5 +20,8 @@ ${"欢迎登录：管理员"}
 <form action="getAllDepat" method="post">
     <input type="submit"value="管理招聘"/>
 </form>
+<form action="getDandR" method="post">
+    <input type="submit" value="查看应聘">
+</form>
 </body>
 </html>

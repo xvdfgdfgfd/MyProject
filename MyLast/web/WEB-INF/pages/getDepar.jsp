@@ -19,9 +19,15 @@
 <body>
         <table border="2">
             <th>招聘信息</th>
-            <c:forEach items="${sessionScope.depar}" var="depat">
+            <c:forEach items="${sessionScope.depar}" var="depar">
                 <tr>
-                    <td>${depat.d_name}</td>
+                    <td>${depar.d_name}</td>
+                    <td>
+                        <form action="addDeparAndRes" method="post">
+                            <input type="hidden" value="${depar.d_id}" name="ddid"/>
+                            <input type="submit"value="投递简历">
+                        </form>
+                    </td>
                 </tr>
             </c:forEach>
         </table>

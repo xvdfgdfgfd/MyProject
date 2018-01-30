@@ -24,4 +24,12 @@ public class DepartmentServiceImpl implements DepartmentService {
     public List<Department> getAllDepat() {
         return departmentMapper.getAllDepat();
     }
+
+    @Override
+    public boolean updateDepar(Department department) {
+        if(departmentMapper.updateDepar(department)){
+            return true;
+            }
+            return false;
+    }
 }

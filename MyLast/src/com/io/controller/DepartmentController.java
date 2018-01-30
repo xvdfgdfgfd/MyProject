@@ -37,4 +37,30 @@ public class DepartmentController {
         }
         return "loginAdmin";
     }
+
+    /*
+    *
+    * 发布招聘*/
+    @RequestMapping(value = "/updateDepar",method = RequestMethod.POST)
+    public String updateDepar(Department department,int did)throws Exception{
+        department.setD_statu(1);
+        department.setD_id(did);
+        if (departmentService.updateDepar(department)){
+            return "loginAdmin";
+
+        }
+        return "loginAdmin";
+    }
+
+    /*
+    * 取消招聘*/
+    @RequestMapping(value = "/downDepar",method = RequestMethod.POST)
+    public String downDepar(Department department,int did)throws Exception{
+        department.setD_statu(0);
+        department.setD_id(did);
+        if (departmentService.updateDepar(department)){
+            return "loginAdmin";
+        }
+        return "loginAdmin";
+    }
 }
