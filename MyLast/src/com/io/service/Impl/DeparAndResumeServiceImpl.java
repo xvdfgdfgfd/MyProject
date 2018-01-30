@@ -29,4 +29,9 @@ public class DeparAndResumeServiceImpl implements DeparAndResumeService {
         }
         return false;
     }
+
+    @Override
+    public boolean updateDandR(DeparAndResume deparAndResume) {
+        return deparAndResumeMapper.updateDandR(deparAndResume);
+    }
 }

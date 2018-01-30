@@ -13,6 +13,15 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
+    public User getUserById(User user) {
+        User user1 = userMapper.getUserById(user);
+        if (user1!=null){
+            return user1;
+        }
+        return null;
+    }
+
+    @Override
     public User login(User user) {
         User user1 = userMapper.login(user);
         if (user1!=null){
@@ -40,5 +49,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean updateUser(User user) {
         return userMapper.updateUser(user);
+    }
+
+    @Override
+    public boolean updateUserByHire(User user) {
+        return userMapper.updateUserByHire(user);
     }
 }

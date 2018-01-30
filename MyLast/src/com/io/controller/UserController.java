@@ -1,6 +1,8 @@
 package com.io.controller;
 
+import com.io.model.DeparAndResume;
 import com.io.model.User;
+import com.io.service.DeparAndResumeService;
 import com.io.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +15,8 @@ import javax.servlet.http.HttpSession;
 public class UserController {
     @Resource
     private UserService userService;
-
+    @Resource
+    private DeparAndResumeService deparAndResumeService;
     /**
      * 跳转到注册界面
      * @return
@@ -28,6 +31,12 @@ public class UserController {
     @RequestMapping(value = "addFailure")
     public String addFailure()throws Exception{
         return "addUser";
+    }
+    /*
+    * 跳转到到员工登录*/
+    @RequestMapping(value = "/forStafflogin")
+    public String forStafflogin()throws Exception{
+        return "loginStaff";
     }
 /*注册方法*/
     @RequestMapping(value = "/addUser",method = RequestMethod.POST)
@@ -56,6 +65,23 @@ public class UserController {
             }
         }
         return "../../index";
+    }
+
+    @RequestMapping(value = "/gotoin",method = RequestMethod.POST)
+    public String gotoin(int drid,HttpSession session)throws Exception{
+        DeparAndResume deparAndResume = new DeparAndResume();
+        deparAndResume.setDR_ID(drid);
+        deparAndResume.setDr_statu(1);
+        User user = (User) session.getAttribute("user");
+        User user1 = new User();
+        user1.setU_id(user.getU_id());
+        user1.setU_intn(0);
+        user1.setU_interview("");
+        userService.updateUser(user1);
+        if (deparAndResumeService.updateDandR(deparAndResume)){
+            return "loginSuccess";
+        }
+        return "loginSuccess";
     }
 }
 

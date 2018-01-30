@@ -4,6 +4,9 @@
     <insert id="addDeparAndRes">
         insert into T_DEPARANDRESUME VALUES(T_DANDR_SEQ.nextval,#{d_id},#{u_id})
     </insert>
+    <update id="updateDandR">
+        update T_DEPARANDRESUME SET DR_STATU = #{dr_statu} where DR_ID=#{DR_ID}
+    </update>
     <select id="getDandR" resultType="com.io.model.DeparAndResume">
         select * from T_DEPARANDRESUME
     </select>

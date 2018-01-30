@@ -10,10 +10,16 @@
     <update id="updateUser">
         update T_USER set "u_intn"=#{u_intn},"u_interview"=#{u_interview} where "u_id"=#{u_id}
     </update>
+    <update id="updateUserByHire">
+        update T_USER set "u_hire"=#{u_hire} where "u_id"=#{u_id}
+    </update>
     <select id="addBefore" resultType="com.io.model.User">
         select "u_name" from T_USER  where "u_name"=#{u_name}
     </select>
     <select id="login" resultType="com.io.model.User">
         select * from T_USER where "u_name"=#{u_name} and "u_pass"=#{u_pass}
+    </select>
+    <select id="getUserById" resultType="com.io.model.User">
+        select * from T_USER where "u_id"=#{u_id}
     </select>
 </mapper>

@@ -32,9 +32,28 @@
                 </td>
                 <td>
                     <form action="invite" method="post">
+                        <input type="hidden" value="${dAndr.DR_ID}"name="drid"/>
                         <input type="hidden" value="${dAndr.u_id}" name="uid"/>
                         <input type="text"name="u_interview"/>
                         <input type="submit" value="邀请面试"/>
+                    </form>
+                </td>
+                <td>
+                    <c:choose>
+                        <c:when test="${dAndr.dr_statu==0}">
+                            <td>${"未面试"}</td>
+                        </c:when>
+                        <c:when test="${dAndr.dr_statu!=0}">
+                            <td>${"已面试"}</td>
+                        </c:when>
+                    </c:choose>
+                </td>
+                <td>
+                    <form action="addStaff" method="post">
+                        <input type="hidden" value="${dAndr.DR_ID}" name="drid"/>
+                        <input type="hidden" value="${dAndr.u_id}" name="uid"/>
+                        <input name="salary"/>
+                        <input type="submit" value="录用"/>
                     </form>
                 </td>
             </tr>

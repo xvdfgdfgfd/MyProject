@@ -8,4 +8,5 @@ import java.util.List;
 public interface DeparAndResumeService {
     List<DeparAndResume> getDandR();
     boolean addDeparAndRes(DeparAndResume deparAndResume);
+    boolean updateDandR(DeparAndResume deparAndResume);
 }

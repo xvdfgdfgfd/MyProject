@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.io.dao.StaffMapper">
+    <insert id="addStaff">
+        insert into T_STAFF  VALUES (T_STAFF_SEQ.nextval,#{s_name},#{s_pass},#{s_position},#{s_salary},#{s_aandp},#{s_cowa},#{department.d_id})
+    </insert>
+
+
+    <select id="getStaff" resultMap="StaffandDepar">
+         select ts.*,td.* from T_STAFF ts,T_DEPARTMENT td where  ts.S_DEPAR_ID=td.D_ID and ts.S_ID=#{s_id}
+    </select>
+    <select id="loginStaff" resultType="com.io.model.Staff">
+        select * from T_STAFF where S_NAME=#{s_name} and S_PASS=#{s_pass}
+    </select>
+
+    <resultMap id="StaffandDepar" type="com.io.model.Staff">
+        <id property="s_id" column="s_id"/>
+        <result property="s_name" column="s_name"/>
+        <result property="s_pass" column="s_pass"/>
+        <result property="s_position" column="s_position"/>
+        <result property="s_salary" column="s_salary"/>
+        <result property="s_aandp" column="s_aandp"/>
+        <result property="s_cowa" column="s_cowa"/>
+        <association property="department" javaType="com.io.model.Department">
+            <id property="d_id" column="d_id"/>
+            <result property="d_name" column="d_name"/>
+            <result property="d_statu" column="d_statu"/>
+        </association>
+    </resultMap>
+</mapper>

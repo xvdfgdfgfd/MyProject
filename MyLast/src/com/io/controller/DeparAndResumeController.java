@@ -70,9 +70,9 @@ public class DeparAndResumeController {
     }
 
     @RequestMapping(value = "/invite",method = RequestMethod.POST)
-    public String invite(User user,int uid)throws Exception{
+    public String invite(User user,int drid,int uid)throws Exception{
         user.setU_id(uid);
-        user.setU_intn(1);
+        user.setU_intn(drid);
         if (userService.updateUser(user)){
             return "loginAdmin";
         }

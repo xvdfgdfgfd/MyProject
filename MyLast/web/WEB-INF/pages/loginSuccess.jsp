@@ -43,11 +43,22 @@
                 <c:when test="${sessionScope.user.u_intn==0}">
                     <td>${"暂无面试消息"}</td>
                 </c:when>
-                <c:when test="${sessionScope.user.u_intn==1}">
+                <c:when test="${sessionScope.user.u_intn!=0}">
                     <td>${"可以面试了！"}</td>
                 </c:when>
             </c:choose>
+            <c:choose>
+                <c:when test="${sessionScope.user.u_intn!=0}">
+                <td>
+                <form action="gotoin" method="post">
+                    <input type="hidden" value="${sessionScope.user.u_intn}" name="drid"/>
+                    <input type="submit" value="去面试"/>
+                </form>
+                </td>
+                </c:when>
+            </c:choose>
         </tr>
+        ${"被录用后请用原帐号密码进行员工登录！"}
     </table>
     <form action="forAddResume"method="post">
         <input type="submit" value="添加简历"/>
@@ -58,5 +69,6 @@
     <form action="getDepar" method="post">
         <input type="submit" value="查看招聘信息"/>
     </form>
+
 </body>
 </html>

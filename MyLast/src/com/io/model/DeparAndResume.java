@@ -4,14 +4,16 @@ public class DeparAndResume {
     private int DR_ID;
     private int d_id;
     private int u_id;
+    private int dr_statu;
 
     public DeparAndResume() {
     }
 
-    public DeparAndResume(int DR_ID, int d_id, int u_id) {
+    public DeparAndResume(int DR_ID, int d_id, int u_id, int dr_statu) {
         this.DR_ID = DR_ID;
         this.d_id = d_id;
         this.u_id = u_id;
+        this.dr_statu = dr_statu;
     }
 
     public int getDR_ID() {
@@ -38,12 +40,21 @@ public class DeparAndResume {
         this.u_id = u_id;
     }
 
+    public int getDr_statu() {
+        return dr_statu;
+    }
+
+    public void setDr_statu(int dr_statu) {
+        this.dr_statu = dr_statu;
+    }
+
     @Override
     public String toString() {
         return "DeparAndResume{" +
                 "DR_ID=" + DR_ID +
                 ", d_id=" + d_id +
                 ", u_id=" + u_id +
+                ", dr_statu=" + dr_statu +
                 '}';
     }
 }
