@@ -13,6 +13,10 @@
         select * from T_STAFF where S_NAME=#{s_name} and S_PASS=#{s_pass}
     </select>
 
+    <select id="getAllStaff" resultMap="StaffandDepar">
+         select ts.*,td.* from T_STAFF ts,T_DEPARTMENT td where  ts.S_DEPAR_ID=td.D_ID
+    </select>
+
     <resultMap id="StaffandDepar" type="com.io.model.Staff">
         <id property="s_id" column="s_id"/>
         <result property="s_name" column="s_name"/>

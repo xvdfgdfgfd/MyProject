@@ -6,6 +6,7 @@ import com.io.service.StaffService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service("staffService")
 public class StaffServiceImpl implements StaffService {
@@ -28,6 +29,11 @@ public class StaffServiceImpl implements StaffService {
             return staff1;
         }
         return null;
+    }
+
+    @Override
+    public List<Staff> getAllStaff() {
+        return staffMapper.getAllStaff();
     }
 
     @Override

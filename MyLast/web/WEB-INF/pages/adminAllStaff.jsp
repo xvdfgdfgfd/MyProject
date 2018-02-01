@@ -1,8 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Sope
-  Date: 2018/1/29
-  Time: 14:50
+  Date: 2018/2/1
+  Time: 15:24
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -16,17 +17,8 @@
     <title></title>
 </head>
 <body>
-${"欢迎登录：管理员"}
-<form action="getAllDepat" method="post">
-    <input type="submit"value="管理招聘"/>
-</form>
-<form action="getDandR" method="post">
-    <input type="submit" value="查看应聘">
-</form>
-
-<form action="getAllStaff" method="post">
-    <input type="submit" value="查看所有员工">
-</form>
-
+    <c:forEach items="${sessionScope.allStaff}" var="allStaff">
+        ${allStaff}
+    </c:forEach>
 </body>
 </html>

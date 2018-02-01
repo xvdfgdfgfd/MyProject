@@ -17,5 +17,8 @@
 </head>
 <body>
     ${sessionScope.staff}
+    <form action="lookStaff" method="post">
+        <input type="submit" value="查看详情"/>
+    </form>
 </body>
 </html>

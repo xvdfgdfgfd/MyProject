@@ -12,6 +12,7 @@ import org.springframework.web.portlet.bind.annotation.RenderMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class StaffController {
@@ -39,11 +40,11 @@ public class StaffController {
         Staff staff1 = (Staff) session.getAttribute("staff");
         staff.setS_id(staff1.getS_id());
         Staff staff2 = staffService.getStaff(staff);
-        if (staff2!=null){
+        System.out.println(staff2);
             session.setAttribute("staff2",staff2);
             return "lookStaff";
-        }
-        return "loginStaffSuccess";
+
+
     }
     /*
     *
@@ -66,6 +67,16 @@ public class StaffController {
         staff.setDepartment(department);
         if (staffService.addStaff(staff)){
             return "loginAdmin";
+        }
+        return "loginAdmin";
+    }
+
+    @RequestMapping(value = "/getAllStaff",method = RequestMethod.POST)
+    public String getAllStaff(HttpSession session)throws Exception{
+        List<Staff> staffList = staffService.getAllStaff();
+        if (staffList!=null){
+            session.setAttribute("allStaff",staffList);
+            return "adminAllStaff";
         }
         return "loginAdmin";
     }
