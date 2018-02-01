@@ -16,6 +16,8 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
 
+    /*
+    * 根据ID找简历*/
     @RequestMapping(value = "/getDepar",method = RequestMethod.POST)
     public String getDepar(Department department, HttpSession session)throws Exception {
         department.setD_statu(1);
@@ -27,7 +29,8 @@ public class DepartmentController {
         return "loginsuccess";
 
     }
-
+    /*
+    * 查看所有招聘信息*/
     @RequestMapping(value = "/getAllDepat",method = RequestMethod.POST)
     public String getAllDepar(HttpSession session)throws Exception{
         List<Department> departments = departmentService.getAllDepat();

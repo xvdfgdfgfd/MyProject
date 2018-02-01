@@ -26,6 +26,8 @@ public class DeparAndResumeController {
     @Resource
     private UserService userService;
 
+    /*
+    * 投递简历*/
     @RequestMapping(value = "/addDeparAndRes",method = RequestMethod.POST)
     public String addDeparAndRes(int ddid,HttpSession session)throws Exception{
         System.out.println(ddid);
@@ -43,6 +45,8 @@ public class DeparAndResumeController {
         return "getDepar";
     }
 
+    /*
+    * 查看投递的简历*/
     @RequestMapping(value = "/getDandR",method = RequestMethod.POST)
     public String getDandR(HttpSession session)throws Exception{
         List<DeparAndResume> deparAndResumes = deparAndResumeService.getDandR();
@@ -54,6 +58,9 @@ public class DeparAndResumeController {
         return "loginAdmin";
     }
 
+    /*
+    *
+    * 管理员查看投递者简历*/
     @RequestMapping(value = "/adminGetResume",method = RequestMethod.POST)
     public String adminGetResume(int uid,HttpSession session)throws Exception{
         User user  = new User();
@@ -69,6 +76,8 @@ public class DeparAndResumeController {
         return "loginAdmin";
     }
 
+    /*
+    * 邀请面试*/
     @RequestMapping(value = "/invite",method = RequestMethod.POST)
     public String invite(User user,int drid,int uid)throws Exception{
         user.setU_id(uid);

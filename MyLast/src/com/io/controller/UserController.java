@@ -66,7 +66,8 @@ public class UserController {
         }
         return "../../index";
     }
-
+    /*
+    * …æ≥˝√Ê ‘–≈œ¢*/
     @RequestMapping(value = "/gotoin",method = RequestMethod.POST)
     public String gotoin(int drid,HttpSession session)throws Exception{
         DeparAndResume deparAndResume = new DeparAndResume();

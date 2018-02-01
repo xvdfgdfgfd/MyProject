@@ -18,13 +18,15 @@ public class ResumeController {
     @Resource
     private ResumeService resumeService;
 
-
+    /*
+    * 跳转到添加简历*/
     @RequestMapping(value = "/forAddResume",method = RequestMethod.POST)
     public String forAddResume()throws  Exception{
         return "addResume";
     }
 
-
+    /*
+    * 添加简历*/
     @RequestMapping(value = "/addResume",method = RequestMethod.POST)
     public String addResume(Resume resume, String birth, HttpSession session)throws Exception{
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
@@ -41,7 +43,8 @@ public class ResumeController {
         }
         return "../../index";
     }
-
+    /*
+    * 得到简历*/
     @RequestMapping(value = "/getResume",method = RequestMethod.POST)
     public String getResume(Resume resume,HttpSession session)throws Exception{
         User user= (User) session.getAttribute("user");
