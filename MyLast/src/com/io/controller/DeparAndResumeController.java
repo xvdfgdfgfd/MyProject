@@ -39,6 +39,7 @@ public class DeparAndResumeController {
         DeparAndResume deparAndResume = new DeparAndResume();
         deparAndResume.setD_id(ddid);
         deparAndResume.setU_id(user.getU_id());
+        deparAndResume.setDr_statu(0);
         if (deparAndResumeService.addDeparAndRes(deparAndResume)){
             return "loginSuccess";
         }

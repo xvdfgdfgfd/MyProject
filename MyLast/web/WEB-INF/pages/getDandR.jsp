@@ -50,7 +50,7 @@
                 </td>
                 <td>
                     <form action="addStaff" method="post">
-                        <input type="hidden" value="${dAndr.DR_ID}" name="drid"/>
+                        <input type="hidden" value="${dAndr.d_id}" name="did"/>
                         <input type="hidden" value="${dAndr.u_id}" name="uid"/>
                         <input name="salary"/>
                         <input type="submit" value="录用"/>

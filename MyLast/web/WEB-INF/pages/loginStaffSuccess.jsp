@@ -16,9 +16,15 @@
     <title></title>
 </head>
 <body>
-    ${sessionScope.staff}
+
     <form action="lookStaff" method="post">
         <input type="submit" value="查看详情"/>
+    </form>
+    <form action="addCowa" method="post">
+        <input type="submit" value="上班打卡"/>
+    </form>
+    <form action="addDcowa" method="post">
+        <input type="submit" value="下班打卡"/>
     </form>
 </body>
 </html>

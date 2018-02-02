@@ -26,5 +26,8 @@
         <input type="submit" value="注册"/>
         <a href="forStafflogin"><input type="button" value="员工登录"></a>
     </form>
+
+
+
 </body>
 </html>

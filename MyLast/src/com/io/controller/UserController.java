@@ -17,6 +17,13 @@ public class UserController {
     private UserService userService;
     @Resource
     private DeparAndResumeService deparAndResumeService;
+    /*
+    *
+    * *******/
+    @RequestMapping(value = "/forerji")
+    public String forerji()throws Exception{
+        return "erji";
+    }
     /**
      * 跳转到注册界面
      * @return

@@ -50,9 +50,9 @@ public class StaffController {
     *
     * 录用后添加到员工*/
     @RequestMapping(value = "/addStaff",method = RequestMethod.POST)
-    public String addStaff(Staff staff, int drid, int uid,int salary)throws Exception{
+    public String addStaff(Staff staff, int did, int uid,int salary)throws Exception{
         Department department = new Department();
-        department.setD_id(drid);
+        department.setD_id(did);
         User user =  new User();
         user.setU_id(uid);
         user.setU_hire(1);
